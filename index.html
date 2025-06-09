@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -31,7 +30,8 @@
     <h2 class="mb-4">【17LIVE】ライバー報酬計算ツール</h2>
     <div class="mb-3">
       <label for="bcInput" class="form-label">獲得ベイビーコイン数を入力</label>
-      <input type="text" class="form-control" id="bcInput" placeholder="例：3,000,000" oninput="formatNumberInput(this)">
+      <input type="text" class="form-control" id="bcInput" placeholder="例：3,000,000"
+             onfocus="removeCommas(this)" onblur="formatNumberOnBlur(this)">
     </div>
     <button class="btn btn-primary" onclick="calculate()">計算する</button>
 
@@ -50,8 +50,12 @@
   </div>
 
   <script>
-    function formatNumberInput(input) {
-      const value = input.value.replace(/,/g, '').replace(/\D/g, '');
+    function removeCommas(input) {
+      input.value = input.value.replace(/,/g, '');
+    }
+
+    function formatNumberOnBlur(input) {
+      const value = input.value.replace(/\D/g, '');
       if (value) {
         input.value = Number(value).toLocaleString();
       } else {
