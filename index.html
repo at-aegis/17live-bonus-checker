@@ -14,14 +14,23 @@
       background-color: #ffc6c6;
       border-radius: 30px;
       padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
       font-weight: bold;
       color: #333;
       max-width: 320px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.4;
+    }
+    .note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .text-center-button {
+      text-align: center;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -33,7 +42,10 @@
       <input type="text" class="form-control" id="bcInput" placeholder="例：3,000,000"
              onfocus="removeCommas(this)" onblur="formatNumberOnBlur(this)">
     </div>
-    <button class="btn btn-primary" onclick="calculate()">計算する</button>
+    
+    <div class="text-center-button">
+      <button class="btn btn-primary" onclick="calculate()">計算する</button>
+    </div>
 
     <div class="result" id="result" style="display:none;">
       <h5>計算結果</h5>
@@ -43,9 +55,11 @@
       <p><strong>合計報酬:</strong> <span id="total"></span> 円</p>
 
       <div class="bc-remaining" id="bcRemainingBox">
-        <span>次の報酬まで</span>
-        <span id="bcRemaining"></span>
+        <div>次の報酬まで…</div>
+        <div id="bcRemaining"></div>
       </div>
+
+      <div class="note">※本ツールは認証ライバー（報酬料率35%）の方向けです</div>
     </div>
   </div>
 
